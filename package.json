@@ -5,7 +5,9 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "server": "nodemon app.js"
+    "server": "nodemon app.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "keywords": [
     "short",
@@ -16,9 +18,16 @@
   "author": "Artem Chekhovskoi <hello@chekhovskoi.com>",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "config": "^3.3.7",
+    "cors": "^2.8.5",
     "express": "^4.18.1",
-    "mongoose": "^6.3.6"
+    "express-validator": "^6.14.1",
+    "http-proxy-middleware": "^2.0.6",
+    "jsonwebtoken": "^8.5.1",
+    "materialize-css": "^1.0.0-rc.2",
+    "mongoose": "^6.3.6",
+    "shortid": "^2.2.16"
   },
   "devDependencies": {
     "concurrently": "^7.2.1",

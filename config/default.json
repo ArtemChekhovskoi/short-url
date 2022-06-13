@@ -1,4 +1,6 @@
 {
     "port": "5000",
-    "mongo_url": "mongodb+srv://monreo:1z0rjh84N@cluster0.mayif.mongodb.net/?retryWrites=true&w=majority"
+    "mongo_url": "mongodb+srv://monreo:1z0rjh84N@cluster0.mayif.mongodb.net/?retryWrites=true&w=majority",
+    "jwtSecret": "1z0rjh",
+    "BaseUrl": "http://localhost:5000"
 }
