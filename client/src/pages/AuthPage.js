@@ -86,6 +86,9 @@ export function AuthPage() {
                     >
                     Registration
                 </button>
+                <div className="block">
+                    <span>Hello there</span>
+                </div>
             </div>
         </div>
     )
