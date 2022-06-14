@@ -4,6 +4,7 @@ import {AuthPage} from "./pages/AuthPage"
 import {AllLinks} from "./pages/AllLinks"
 import {CreateLink} from "./pages/CreateLink"
 import {DetailsPage} from "./pages/DetailsPage"
+import MainPage from "./pages/MainPage"
 
 export function useRouter(isAutorized) {
     if(isAutorized) {
@@ -20,7 +21,9 @@ export function useRouter(isAutorized) {
     }
         return(
             <Routes>
-                <Route path="/" element={<AuthPage/>} />
+                <Route path="/" element={<MainPage/>} />
+                <Route path="/signup" element={<AuthPage />} />
+                <Route path="/signin" element={<AuthPage />} />
                 <Route
                     path="*"
                     element={<Navigate to="/" replace />} />

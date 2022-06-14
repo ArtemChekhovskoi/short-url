@@ -1,0 +1,250 @@
+/* box sizing io*/
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/* paddings */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* margins */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* body */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* ul & il */
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* a */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* img */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* article*/
+article > * + * {
+  margin-top: 1em;
+}
+
+/* forms, inputs, buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* animations */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    -webkit-animation-duration: 0.01ms !important;
+            animation-duration: 0.01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+            animation-iteration-count: 1 !important;
+    -webkit-transition-duration: 0.01ms !important;
+            transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.regular-text, .footer--main-container p, td {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+  color: #130d40;
+}
+
+h1, th {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 1.25rem;
+  color: #130d40;
+}
+
+h1 {
+  margin-left: 2rem;
+  font-size: 2rem;
+}
+
+.navigation--link {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #130d40;
+  text-decoration: none;
+}
+
+.navigation--link:hover {
+  cursor: pointer;
+  border-bottom: 1px solid #130d40;
+}
+
+td a {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+  color: #130d40;
+  text-decoration: none;
+}
+
+td a:hover {
+  cursor: pointer;
+  border-bottom: 1px solid #130d40;
+}
+
+.footer--main-container a {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer--main-container a:hover {
+  cursor: pointer;
+  border-bottom: 1px solid #fff;
+}
+
+.signup-button,
+.signin-button {
+  border-radius: 8px;
+  padding: 1rem 2.3rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+  font-size: 1.25rem;
+  text-decoration: none;
+}
+
+.signup-button:hover,
+.signin-button:hover {
+  cursor: pointer;
+  border: 0;
+}
+
+.app {
+  position: relative;
+  min-height: 100vh;
+}
+
+.navigation--main-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding: 2rem;
+  margin-bottom: 4rem;
+  background-color: #edf1f7;
+  height: 7rem;
+}
+
+.navigation--main-container ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto 0 0;
+  justify-self: stre;
+}
+
+.navigation--main-container ul li {
+  list-style-type: none;
+}
+
+.navigation--link {
+  margin-right: 2rem;
+}
+
+.signup-button {
+  background-color: #f4417c;
+  color: #fff;
+}
+
+.signup-button:hover {
+  background-color: #f4414c;
+}
+
+.signin-button:hover {
+  color: #333333;
+}
+
+.footer--main-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 5.5rem;
+  background-color: #130d40;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  padding: 1rem 4rem;
+}
+
+.footer--main-container p {
+  color: #fff;
+  font-size: 0.75rem;
+  margin-right: 3rem;
+}
+
+.footer--main-container a {
+  font-size: 0.75rem;
+}
+
+table {
+  margin: 1rem 2rem;
+  max-width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #edf1f7;
+}
+
+td {
+  word-break: break-all;
+  border: 0;
+}
+
+tr:nth-child(even) {
+  background-color: #edf1f7;
+  border: 0;
+}
+
+td, th {
+  text-align: left;
+  padding: .5rem 1.5rem;
+}
+/*# sourceMappingURL=styles.css.map */

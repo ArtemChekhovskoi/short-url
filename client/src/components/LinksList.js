@@ -9,32 +9,43 @@ export function LinksList({links}) {
     console.log(links)
     const linksHtml = links.map((link, index) => {
         return(
-            <div key={link._id}>
-                <p>
-                    id: {index + 1}
-                </p>
-                <p>
-                    Base URL: {" "}
+            <tr key={link._id}>
+                <td>
+                    <a href={`/detail/${link._id}`}>{index + 1}</a>
+                </td>
+                <td>
                     <a href={link.from}>
                         {link.from}
                     </a>
-                </p>
-                <p>
-                    Short URL: {" "}
+                </td>
+                <td>
                     <a href={link.to}>
                         {link.to}
                     </a>
-                </p>
-                <p>
-                    Clicks: {link.clicks}
-                </p>
-                <p>
-                    Created: {new Date(link.date).toLocaleDateString()}
-                </p>
-                <a href={`/detail/${link._id}`}>Open details</a>
-            </div>
+                </td>
+                <td>
+                   {link.clicks}
+                </td>
+                <td>
+                    {new Date(link.date).toLocaleDateString()}
+                </td>
+            </tr>
         )
     })
 
-    return linksHtml
+    return (
+        <div className="alllinks--container">
+            <table>
+                <tr>
+                    <th>id</th>
+                    <th>Base url</th>
+                    <th>Short URL</th>
+                    <th>Clicks</th>
+                    <th>Created</th>
+                </tr>
+                {linksHtml}
+            </table>
+        </div>
+        
+    )
 }

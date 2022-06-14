@@ -1,0 +1,215 @@
+@import "nullstyle.scss";
+
+// MAIN SETTINGS ----------------------------
+
+$main-color: red;
+$font-title: 'Josefin Sans', sans-serif;
+$font-regular: 'Open Sans', sans-serif;
+$color-accent: #f4417c;
+$color-text-dark: #130d40;
+$color-text-light: #fff;
+$color-background: #130d40;
+$color-light-bckgr: #edf1f7;
+$color-preheader: #8f9bb3;
+
+%regular-text{
+    font-family: $font-regular;
+    font-size: 1rem;
+    color: $color-text-dark;
+}
+
+%title-text {
+    font-family: $font-title;
+    font-size: 1.25rem;
+    color: $color-text-dark;
+}
+
+%h1 {
+    @extend %title-text;
+    margin-left: 2rem;
+    font-size: 2rem;
+}
+
+%navigation-link{
+    font-family: $font-regular;
+    font-size: 1rem;
+    font-weight: bold;
+    color: $color-text-dark;
+    text-decoration: none;
+    &:hover {
+        cursor: pointer;
+        border-bottom: 1px solid $color-text-dark;
+    }
+}
+
+%regular-link {
+    font-family: $font-regular;
+    font-size: 1rem;
+    color: $color-text-dark;
+    text-decoration: none;
+    &:hover {
+        cursor: pointer;
+        border-bottom: 1px solid $color-text-dark;
+    }
+}
+
+%regular-link-light {
+    font-family: $font-regular;
+    font-size: 1rem;
+    color: $color-text-light;
+    text-decoration: none;
+    &:hover {
+        cursor: pointer;
+        border-bottom: 1px solid $color-text-light;
+    }
+}
+
+%button {
+    border-radius: 8px;
+    padding: 1rem 2.3rem;
+    font-family: $font-regular;
+    font-weight: bold;
+    font-size: 1.25rem;
+    text-decoration: none;
+    &:hover {
+        cursor: pointer;
+        border: 0;
+    }
+}
+
+
+@mixin font($family, $size, $color, $margin) {
+    font-family: $family;
+    font-size: $size;
+    color: $color;
+    margin: $margin
+}
+
+@mixin button($background, $color, $hoverColor) {
+    background-color: $background;
+    color: $color;
+    &:hover {
+        background-color: $hoverColor;
+    }
+}
+
+
+// TYPOGRAPHY -------------------------------
+
+.regular-text {
+    @extend %regular-text;
+}
+
+h1 {
+    @extend %h1;
+}
+
+
+
+//LAYOUT -------------------------------------
+
+.app {
+    position: relative;
+    min-height: 100vh;
+}
+
+
+//NAVBAR ------------------------------------
+
+.navigation--main-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 2rem;
+    margin-bottom: 4rem;
+    background-color: $color-light-bckgr;
+    height: 7rem;
+    ul {
+        display: flex;
+        margin: 0 auto 0 0;
+        justify-self: stre;
+        li {
+            list-style-type: none;
+        }
+    }
+
+}
+
+.navigation--link {
+    @extend %navigation-link;
+    margin-right: 2rem;
+}
+
+.signup-button,
+.signin-button {
+    @extend %button;
+}
+
+.signup-button {
+    @include button($color-accent, $color-text-light, #f4414c)
+}
+
+.signin-button {
+    &:hover {
+        color: #333333;
+    }
+}
+
+
+//FOOTER --------------------------------------
+
+.footer--main-container {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 5.5rem;  
+    background-color: $color-background;
+    display: flex;
+    justify-content: flex-start;
+    padding: 1rem 4rem;
+    
+    p {
+        @extend %regular-text;
+        color: $color-text-light;
+        font-size: 0.75rem;
+        margin-right: 3rem;
+    }
+    a {
+        @extend %regular-link-light;
+        font-size: 0.75rem;
+    }
+}
+
+
+//ALL LINKS PAGE -----------------------------------
+
+table {
+    margin: 1rem 2rem;
+    max-width: 100%;
+    border-collapse: collapse;
+    border: 1px solid $color-light-bckgr;
+}
+
+th {
+    @extend %title-text;
+}
+
+td {
+    @extend %regular-text;
+    word-break: break-all;
+    border: 0;
+    a {
+        @extend %regular-link;
+    }
+}
+
+tr:nth-child(even) {
+    background-color: $color-light-bckgr;
+    border: 0;
+}
+
+td, th {
+    text-align: left;
+    padding: .5rem 1.5rem;
+    
+}
