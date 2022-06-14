@@ -26,7 +26,6 @@ $color-preheader: #8f9bb3;
 
 %h1 {
     @extend %title-text;
-    margin-left: 2rem;
     font-size: 2rem;
 }
 
@@ -66,14 +65,13 @@ $color-preheader: #8f9bb3;
 
 %button {
     border-radius: 8px;
-    padding: 1rem 2.3rem;
+    padding: .8rem 3rem;
     font-family: $font-regular;
     font-weight: bold;
-    font-size: 1.25rem;
+    font-size: 1rem;
     text-decoration: none;
     &:hover {
         cursor: pointer;
-        border: 0;
     }
 }
 
@@ -119,17 +117,31 @@ h1 {
 .navigation--main-container {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     padding: 2rem;
     margin-bottom: 4rem;
     background-color: $color-light-bckgr;
-    height: 7rem;
+    height: 6rem;
     ul {
         display: flex;
         margin: 0 auto 0 0;
         justify-self: stre;
+
         li {
             list-style-type: none;
+        }
+    }
+    .navigation--logout {
+        @extend %regular-link;
+    }
+
+    div {
+        display: flex;
+        align-items: center;
+
+        span {
+            margin-left: .7rem;
+            @extend %regular-text;
         }
     }
 
@@ -151,8 +163,13 @@ h1 {
 
 .signin-button {
     &:hover {
-        color: #333333;
+        color: #999999;
     }
+}
+
+.navigation--logo {
+    width: 2.5rem;
+    height: 2.5rem;
 }
 
 
@@ -162,7 +179,7 @@ h1 {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 5.5rem;  
+    height: 4.5rem;
     background-color: $color-background;
     display: flex;
     justify-content: flex-start;
@@ -212,4 +229,47 @@ td, th {
     text-align: left;
     padding: .5rem 1.5rem;
     
+}
+
+// AUTH PAGE STYLES ----------------------
+
+.auth-container {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    input {
+        width: 20%;
+        height: 2.5rem;
+        border-radius: 7px;
+        border: 1px solid $color-text-dark;
+        padding: 0 1rem;
+    }
+    h1 {
+        margin-bottom: 2rem;
+        margin-top: 5%;
+    }
+}
+
+.auth--main-container {
+    width: 100%;
+}
+
+.auth--button-block {
+    text-align: center;
+    button {
+        @extend %button;
+        @include button(#fff, $color-text-dark, $color-light-bckgr);
+        margin-top: 1.5rem;    
+    }
+    p {
+        margin-top: .75rem;
+        a {
+            @extend %regular-link;
+            border-bottom: 1px solid #130d40;
+            &:hover {
+                font-weight: bold;
+            }
+        }
+    }
 }

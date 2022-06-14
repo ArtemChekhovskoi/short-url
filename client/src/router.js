@@ -1,10 +1,11 @@
 import React from "react"
 import {Routes, Route, Navigate} from "react-router-dom"
-import {AuthPage} from "./pages/AuthPage"
 import {AllLinks} from "./pages/AllLinks"
 import {CreateLink} from "./pages/CreateLink"
 import {DetailsPage} from "./pages/DetailsPage"
 import MainPage from "./pages/MainPage"
+import SignIn from "./pages/SignIn"
+import SignUp from "./pages/SignUp"
 
 export function useRouter(isAutorized) {
     if(isAutorized) {
@@ -22,8 +23,8 @@ export function useRouter(isAutorized) {
         return(
             <Routes>
                 <Route path="/" element={<MainPage/>} />
-                <Route path="/signup" element={<AuthPage />} />
-                <Route path="/signin" element={<AuthPage />} />
+                <Route path="/signin" element={<SignIn />} />
+                <Route path="/signup" element={<SignUp />} />
                 <Route
                     path="*"
                     element={<Navigate to="/" replace />} />

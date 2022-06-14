@@ -2,8 +2,9 @@ import React, {useContext, useEffect, useState} from "react"
 import { useHttp } from "../hooks/http.hook"
 import { useMessage } from "../hooks/message.hook"
 import { AuthContext } from "../Context/auth.context"
+import { Link } from "react-router-dom"
 
-export function AuthPage() {
+export function Auth(props) {
     const auth = useContext(AuthContext)
     const message = useMessage()
     const {loading, error, request, clearError} = useHttp()
@@ -38,19 +39,15 @@ export function AuthPage() {
         try {
             const data = await request("http://localhost:5000/api/auth/login", "POST", {...form})
             auth.login(data.token, data.userId)
-            alert(data.message)
         } catch (e) {
             console.log("error" + e)
         }
     }
 
     return(
-        <div className="container">
-            <h1>Make your link short here</h1>
-            <span>
-                Authorization
-            </span>
-            <div>
+        <div className="auth--main-container">
+            <div className="auth-container">
+            <h1>{props.title}</h1>
                 <input 
                     placeholder="email"
                     id="email"
@@ -58,9 +55,7 @@ export function AuthPage() {
                     name="email"
                     value={form.email}
                     onChange={changeHandler}
-                    /> 
-                    <label htmlFor="email">Email</label>
-
+                    />    
                 <br/>
 
                 <input 
@@ -70,25 +65,32 @@ export function AuthPage() {
                     name="password"
                     value={form.password}
                     onChange={changeHandler}
-                    /> 
-                    <label htmlFor="pass">Password</label>
-            </div>
+                    />   
             <div>
-                <button
+                {props.button === "signin" && 
+                <div className="auth--button-block">
+                    <button
                     disabled={loading}
                     onClick={loginHandler}
                     >
                         Login
-                </button>
-                <button
+                    </button>
+                    <p>New for us? <Link to="/signup">Sign Up</Link></p>
+                </div>
+                }
+                {props.button === "signup" && 
+                
+                <div className="auth--button-block">
+                    <button
                     disabled={loading}
                     onClick={registerHandler}
                     >
                     Registration
-                </button>
-                <div className="block">
-                    <span>Hello there</span>
+                    </button>
+                    <p>Alredy a user? <Link to="/signup">Sign Up</Link></p>
                 </div>
+                }
+                 </div>
             </div>
         </div>
     )
