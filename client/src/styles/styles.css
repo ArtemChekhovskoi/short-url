@@ -135,7 +135,7 @@ h1 {
 }
 
 .signup-button,
-.signin-button, .auth--button-block button {
+.signin-button, .auth--button-block button, .createlink--input button {
   border-radius: 8px;
   padding: .8rem 3rem;
   font-family: "Open Sans", sans-serif;
@@ -145,8 +145,16 @@ h1 {
 }
 
 .signup-button:hover,
-.signin-button:hover, .auth--button-block button:hover {
+.signin-button:hover, .auth--button-block button:hover, .createlink--input button:hover {
   cursor: pointer;
+}
+
+.auth-container input, .createlink--input input {
+  width: 20%;
+  height: 2.5rem;
+  border-radius: 7px;
+  border: 1px solid #130d40;
+  padding: 0 1rem;
 }
 
 .app {
@@ -280,14 +288,6 @@ td, th {
           align-items: center;
 }
 
-.auth-container input {
-  width: 20%;
-  height: 2.5rem;
-  border-radius: 7px;
-  border: 1px solid #130d40;
-  padding: 0 1rem;
-}
-
 .auth-container h1 {
   margin-bottom: 2rem;
   margin-top: 5%;
@@ -321,5 +321,50 @@ td, th {
 
 .auth--button-block p a:hover {
   font-weight: bold;
+}
+
+.createlink--form-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.createlink--form-container h1 {
+  margin: 4rem 0 2rem 0;
+}
+
+.createlink--input {
+  width: 40%;
+}
+
+.createlink--input button {
+  background-color: #fff;
+  color: #130d40;
+  margin-top: 1.5rem;
+  width: 47%;
+}
+
+.createlink--input button:hover {
+  background-color: #edf1f7;
+}
+
+.createlink--input input {
+  width: 100%;
+}
+
+.createlink--buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 /*# sourceMappingURL=styles.css.map */

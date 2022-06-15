@@ -10,7 +10,8 @@ export function CreateLink() {
     const [link, setLink] = React.useState("")
 
     const pressHandler = async event => {
-        if (event.key === "Enter") {
+        console.log(event.currentTarget)
+        if (event.key === "Enter" || event.type === "click") {
             try {
                 const data = await request("http://localhost:5000/api/link/generate", "POST", {from: link}, {
                     Authorization: `Bearer ${auth.token}`
@@ -22,19 +23,26 @@ export function CreateLink() {
             }
         }
     }
-
     return(
         <div className="main-content">
-            <h1>Create Link</h1>
-            <input 
-                    placeholder="Paste your link"
-                    id="link"
-                    type="text"
-                    value={link}
-                    onChange={e => setLink(e.target.value)}
-                    onKeyPress={pressHandler}
-                    /> 
-                    <label htmlFor="link">Paste your link</label>
+            <div className="createlink--form-container">
+                <h1>Create Link</h1>
+                <div className="createlink--input">
+                    <input 
+                            placeholder="Paste your link"
+                            id="link"
+                            type="text"
+                            value={link}
+                            onChange={e => setLink(e.target.value)}
+                            onKeyPress={pressHandler}
+                            />
+                    <br />
+                    <div className="createlink--buttons">
+                        <button onClick={pressHandler}>Cut</button>
+                        <button onClick={pressHandler}>Cut & copy</button>
+                    </div>  
+                </div>  
+            </div>
         </div>
     )
 }

@@ -75,6 +75,13 @@ $color-preheader: #8f9bb3;
     }
 }
 
+%input {
+    width: 20%;
+    height: 2.5rem;
+    border-radius: 7px;
+    border: 1px solid $color-text-dark;
+    padding: 0 1rem;
+}
 
 @mixin font($family, $size, $color, $margin) {
     font-family: $family;
@@ -239,11 +246,7 @@ td, th {
     flex-direction: column;
     align-items: center;
     input {
-        width: 20%;
-        height: 2.5rem;
-        border-radius: 7px;
-        border: 1px solid $color-text-dark;
-        padding: 0 1rem;
+        @extend %input;
     }
     h1 {
         margin-bottom: 2rem;
@@ -273,3 +276,35 @@ td, th {
         }
     }
 }
+
+//CREATE LINK ------------------------------------
+
+.createlink--form-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+    h1 {
+        margin: 4rem 0 2rem 0;
+    }
+}
+
+.createlink--input {
+    width: 40%;
+    button {
+        @extend %button;
+        @include button(#fff, $color-text-dark, $color-light-bckgr);
+        margin-top: 1.5rem;
+        width: 47%;
+    }
+    input {
+        @extend %input;
+        width: 100%;
+    }
+}
+
+.createlink--buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
