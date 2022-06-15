@@ -6,7 +6,19 @@ export function LinksList({links}) {
             <h2>No links yet</h2>
         )
     }
-    console.log(links)
+
+   function shortenFromLink(link) {
+    let shortFromLink = ""
+
+    if(link.length > 50) {
+        shortFromLink = link.slice(0, 30) + "..."
+    } else {
+        shortFromLink = link
+    }
+
+    return shortFromLink
+   }
+
     const linksHtml = links.map((link, index) => {
         return(
             <tr key={link._id}>
@@ -14,9 +26,13 @@ export function LinksList({links}) {
                     <a href={`/detail/${link._id}`}>{index + 1}</a>
                 </td>
                 <td>
-                    <a href={link.from}>
-                        {link.from}
-                    </a>
+                    <div className="tooltip">
+                        <a href={link.from}>
+                            {shortenFromLink(link.from)}
+                        </a>
+                        <span className="tooltiptext">{link.from}</span>
+                    </div>
+                    
                 </td>
                 <td>
                     <a href={link.to}>

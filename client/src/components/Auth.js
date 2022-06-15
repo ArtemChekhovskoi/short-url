@@ -3,6 +3,8 @@ import { useHttp } from "../hooks/http.hook"
 import { useMessage } from "../hooks/message.hook"
 import { AuthContext } from "../Context/auth.context"
 import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
+const {baseUrl} = require("../../package.json")
 
 export function Auth(props) {
     const auth = useContext(AuthContext)
@@ -12,9 +14,10 @@ export function Auth(props) {
         email: "",
         password: ""
     })
+    const [errorMessage, setErrorMessage] = useState("")
+    const navigate = useNavigate()
 
     useEffect(() => {
-        message(error)
         clearError()
     },[error, message, clearError])
 
@@ -28,25 +31,25 @@ export function Auth(props) {
 
     const registerHandler = async () => {
         try {
-            const data = await request("http://localhost:5000/api/auth/register", "POST", {...form})
-            alert(data.message)
+            const data = await request(`${baseUrl}/api/auth/register`, "POST", {...form})
+            navigate("/success")
         } catch (e) {
-            console.log("error" + e)
+            setErrorMessage(e.message)
         }
     }
 
     const loginHandler = async () => {
         try {
-            const data = await request("http://localhost:5000/api/auth/login", "POST", {...form})
+            const data = await request(`${baseUrl}/api/auth/login`, "POST", {...form})
             auth.login(data.token, data.userId)
         } catch (e) {
-            console.log("error" + e)
+            setErrorMessage(e.message)
         }
     }
 
     return(
         <div className="auth--main-container">
-            <div className="auth-container">
+            <div className="auth-container main-content">
             <h1>{props.title}</h1>
                 <input 
                     placeholder="email"
@@ -65,7 +68,10 @@ export function Auth(props) {
                     name="password"
                     value={form.password}
                     onChange={changeHandler}
-                    />   
+                    /> 
+                    <p className="error-message">
+                        {errorMessage}
+                    </p>  
             <div>
                 {props.button === "signin" && 
                 <div className="auth--button-block">

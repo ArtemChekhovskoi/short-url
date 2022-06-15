@@ -20,7 +20,7 @@ router.post("/register",
         if(!errors.isEmpty()) {
             return res.status(400).json({
                 errors: errors.array(),
-                message: "Incorrect registration data"
+                message: "Incorrect email or very short password (should be > 6)"
             })
         }
 
@@ -28,7 +28,7 @@ router.post("/register",
 
         const candidate = await User.findOne({email})
         if (candidate) {
-            return res.status(400).json({message: "Uer has already exists"})
+            return res.status(400).json({message: "User has already exists"})
         }
 
         const hashedPassword = await bcrypt.hash(password, 12)

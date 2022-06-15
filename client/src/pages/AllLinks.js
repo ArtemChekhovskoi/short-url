@@ -31,8 +31,10 @@ export function AllLinks() {
 
     return(
         <div className="main-content">
-            <h1>All Links</h1>
-            {!loading && <LinksList links={links}/>}
+            <div className="all-links-container">
+                <h1 className="all-links-title">All Links</h1>
+                {!loading && <LinksList links={links}/>}
+            </div>
         </div>
         
     )

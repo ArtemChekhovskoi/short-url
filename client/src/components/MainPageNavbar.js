@@ -9,11 +9,11 @@ export default function MainPageNavbar() {
 
     return(
         <nav className="navigation--main-container">
-            <div>
+            <div className="logo">
                 <Link to="/">
                     <img className="navigation--logo" src={scissors} />
                 </Link>
-                <span>cut.the.link</span>
+                <span className="navigation--logo-text">cut-the.link</span>
             </div>
             <div>
                 <Link className="signin-button" to="/signin">        

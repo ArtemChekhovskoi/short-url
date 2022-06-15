@@ -9,11 +9,11 @@ export default function Navbar() {
 
     return(
         <nav className="navigation--main-container">
-            <div>
+            <div className="logo">
                 <Link to="/">
                     <img className="navigation--logo" src={scissors} />
                 </Link>
-                <span>cut.the.link</span>
+                <span className="navigation--logo-text">cut-the.link</span>
             </div>
             <ul>
                 <li>
@@ -23,7 +23,7 @@ export default function Navbar() {
                 </li>
                 <li>
                     <Link className="navigation--link" to="/create">
-                        Create Link
+                        Create short link
                     </Link>
                 </li>
             </ul>

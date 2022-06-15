@@ -6,12 +6,13 @@ import {DetailsPage} from "./pages/DetailsPage"
 import MainPage from "./pages/MainPage"
 import SignIn from "./pages/SignIn"
 import SignUp from "./pages/SignUp"
+import Success from "./pages/Success"
 
 export function useRouter(isAutorized) {
     if(isAutorized) {
         return(
             <Routes>
-                <Route exact path="/links" element={<AllLinks/>} />
+                <Route path="/links" element={<AllLinks/>} />
                 <Route path="/create" element={<CreateLink/>} />
                 <Route path="/detail/:id" element={<DetailsPage/>} />
                 <Route
@@ -25,6 +26,7 @@ export function useRouter(isAutorized) {
                 <Route path="/" element={<MainPage/>} />
                 <Route path="/signin" element={<SignIn />} />
                 <Route path="/signup" element={<SignUp />} />
+                <Route path="/success" element={<Success/>} />
                 <Route
                     path="*"
                     element={<Navigate to="/" replace />} />

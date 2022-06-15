@@ -2,31 +2,33 @@ import React, { useContext } from "react"
 import { AuthContext } from "../Context/auth.context"
 import { useHttp } from "../hooks/http.hook"
 import {useNavigate} from "react-router-dom"
+const {baseUrl} = require("../../package.json")
 
 export function CreateLink() {
     const navigate = useNavigate()
     const auth = useContext(AuthContext)
     const {request} = useHttp()
     const [link, setLink] = React.useState("")
+    const [newLinkText, setNewLinkText] = React.useState("")
 
-    const pressHandler = async event => {
-        console.log(event.currentTarget)
+    const pressHandler = async (event, isCopy) => {
         if (event.key === "Enter" || event.type === "click") {
             try {
-                const data = await request("http://localhost:5000/api/link/generate", "POST", {from: link}, {
+                const data = await request(`${baseUrl}/api/link/generate`, "POST", {from: link}, {
                     Authorization: `Bearer ${auth.token}`
                 })
-                navigate(`/detail/${data.link._id}`)
-                console.log(data)
+                setNewLinkText(<p>Your short link: <a href="">{data.link.to}</a></p>)
+                isCopy && navigator.clipboard.writeText(data.link.to)
             } catch (e) {
 
             }
         }
     }
+
     return(
         <div className="main-content">
             <div className="createlink--form-container">
-                <h1>Create Link</h1>
+                <h1>Create short link</h1>
                 <div className="createlink--input">
                     <input 
                             placeholder="Paste your link"
@@ -38,9 +40,10 @@ export function CreateLink() {
                             />
                     <br />
                     <div className="createlink--buttons">
-                        <button onClick={pressHandler}>Cut</button>
-                        <button onClick={pressHandler}>Cut & copy</button>
-                    </div>  
+                        <button onClick={(e) => pressHandler(e, false)}>Cut</button>
+                        <button onClick={(e) => pressHandler(e, true)}>Cut & copy</button>
+                    </div>
+                    {newLinkText}
                 </div>  
             </div>
         </div>
